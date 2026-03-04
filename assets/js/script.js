@@ -46,8 +46,7 @@ function runGame(gametype) {
     } else if (gametype === "multiply") {
         displayMultiplyQuestion(num1, num2);
     } else {
-        alert(`Unknown game type: ${gametype}`);
-        throw `Unknown game type: ${gametype}. Aborting!`;
+        displayDivisionQuestion(num1, num2);
     }
 
 };
@@ -92,8 +91,7 @@ function calculateCorrectAnswer() {
     } else if (operator === "x") {
         return [operand1 * operand2, "multiply"];
     } else {
-        alert(`Unimplemented operator ${operator}`);
-        throw `Unimplemented operator ${operator}. Aborting!`;
+        return [operand1 / operand2, "division"];
     }
 
 
@@ -157,5 +155,15 @@ function displayMultiplyQuestion(operand1, operand2) {
     document.getElementById("operator").textContent = "x";
 };
 
-    
+/**
+ * Displays a division question with the given operands
+ * @param {*} operand1 
+ * @param {*} operand2
+ */
+function displayDivisionQuestion(operand1, operand2) {
 
+    document.getElementById("operand1").textContent = operand1 * operand2;
+    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operator").textContent = "/";
+    
+};
